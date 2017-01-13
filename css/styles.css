@@ -23,6 +23,10 @@ body {
   padding-bottom: 60px;
 }
 
+main {
+    overflow: auto;
+}
+
 /*
   This rule ensure that all images always fit in their container
    but are never stretched beyond their native resolution
@@ -204,6 +208,7 @@ figure {
     display: block;
     float: left;
   }
+
   .site-logo {
     position: fixed;
     width: 50px;
@@ -211,6 +216,7 @@ figure {
     left: 10px;
     z-index: 1000;
   }
+
   .site-nav {
     width: 70px;
     height: 100%;
@@ -221,7 +227,16 @@ figure {
     clear: left;
     width: 70px;
   }
-  .movie {
+
+  main {
+    margin-left: 70px;
+  }
+
+  section.about {
+    margin-left: 70px;
+  }
+
+  nav.footer-nav {
     margin-left: 70px;
   }
 }
@@ -229,12 +244,21 @@ figure {
 
 @media (min-width: 992px) {
 /* Movie Overview Enabled after 992px*/
-  .movie-overview {
-    display: none;
+  .movie:first-child {
+    display: block;
     float: left;
   }
-  .movie {
-    clear: left;
-    width: 33.3333%;
+  .movie:not(:first-child) {
+    float: left;
+    width: 33.3333333%;
+  }
+  article:not(:first-child) .movie-overview {
+    display: none;
+  }
+  article:not(:first-child) .movie-backdrop {
+    display: none;
+  }
+  article:not(:first-child) .movie-poster {
+    display: block;
   }
 }
